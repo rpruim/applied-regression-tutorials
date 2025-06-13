@@ -91,7 +91,7 @@ install.packages(c('rmarkdown', # reproducible research documents
                    # optional additions:
                    # 'mosaic', # formula-based summary stats and resampling
                    # 'openintro', # datasets
-                   # 'shiny', 'plotly', 'gganimate', 'leaflet', # interactive graphics/maps
+                   # 'shiny', 'plotly', 'gganimate', 'leaflet' # interactive graphics/maps
                    )) 
 # if desired, for function to ggplot ACFs:
 # remotes::install_github('stacyderuiter/s245')
