@@ -1,9 +1,12 @@
 project:
-  type: website
+  type: websiteA
+
+  resources: 
+    - "data/*"
 
 website:
   title: "Applied Regression with R"
-  repo-url: https://github.com/stacyderuiter/applied-regression
+  repo-url: https://github.com/rpruim/applied-regression-tutorials
   repo-actions: [edit, issue]
   page-navigation: true
   sidebar: 
