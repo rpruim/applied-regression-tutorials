@@ -9,7 +9,7 @@
 <meta name="author" content="Stacy DeRuiter">
 <meta name="dcterms.date" content="2026-01-22">
 
-<title>Fitting Linear Models in R</title>
+<title>Fitting Linear Models in R – Applied Regression with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,20 +59,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="lm-fit_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lm-fit_files/libs/quarto-html/quarto.js"></script>
-<script src="lm-fit_files/libs/quarto-html/popper.min.js"></script>
-<script src="lm-fit_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="lm-fit_files/libs/quarto-html/anchor.min.js"></script>
-<link href="lm-fit_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lm-fit_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="lm-fit_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="lm-fit_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="lm-fit_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="lm-fit_files/libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="lm-fit_files/libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
-<script type="module" src="lm-fit_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="lm-fit_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../quarto/lm-assess.html" rel="next">
+<link href="../quarto/lm-plan.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-868b9742d7bde9f1698ef1c41a43f714.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
+<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -107,12 +142,179 @@ window.Quarto = {
 <link rel="stylesheet" href="include/webex.css">
 </head>
 
-<body>
+<body class="nav-sidebar docked nav-fixed">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Applied Regression with R</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/lm-plan.html">Linear Models</a></li><li class="breadcrumb-item"><a href="../quarto/lm-fit.html">Model Fitting and Equation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applied Regression in R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">R Basics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/install-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install R/RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/r-basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/how-to-quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Quarto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/math-notation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Notation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/r-results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R Results in Text</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/graphics-design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Designing Data Visualizations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/graphics-choose.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Choosing a Graph Type</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/graphics-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Linear Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/lm-plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model Planning for Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/lm-fit.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Model Fitting and Equation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/lm-assess.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model Assessment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/lm-interp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interpretation and Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/lm-interp-more.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">More Inference</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
@@ -148,11 +350,12 @@ window.Quarto = {
   </ul></li>
   <li><a href="#linear-regression-conditions" id="toc-linear-regression-conditions" class="nav-link" data-scroll-target="#linear-regression-conditions">Linear Regression Conditions</a></li>
   </ul>
-</nav>
-</div>
+<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-fit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../quarto/lm-plan.html">Linear Models</a></li><li class="breadcrumb-item"><a href="../quarto/lm-fit.html">Model Fitting and Equation</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Fitting Linear Models in R</h1>
 </div>
@@ -185,7 +388,7 @@ window.Quarto = {
 
 <div class="cell" data-layout-align="center" data-setup="true" data-exercise="nerd-lm">
 <script type="exercise-setup-nerd-lm-contents">
-eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsImV4ZXJjaXNlIjpbIm5lcmQtbG0iXSwiaW5jbHVkZSI6ZmFsc2UsIm91dHB1dCI6ZmFsc2UsInNldHVwIjp0cnVlfSwiY29kZSI6IlxuXG50aGVtZV9zZXQodGhlbWVfYncoYmFzZV9zaXplPTE2KSlcblxua25pdHI6Om9wdHNfY2h1bmskc2V0KFxuICBlY2hvID0gRkFMU0UsXG4gIGZpZy5hbGlnbiA9IFwiY2VudGVyXCIsXG4gIGZpZy53aWR0aCA9IDYsIGZpZy5oZWlnaHQgPSAyLjUpXG5cbk1JX2xlYWQgPC0gcmVhZC5jc3YoZmlsZT0naHR0cHM6Ly9zbGRyLm5ldGxpZnkuYXBwL2RhdGEvTUlfbGVhZC5jc3YnKVxuXG5cbnNldC5zZWVkKDE0KVxuYm9ub2JvcyA8LSByZWFkLmNzdignaHR0cHM6Ly9zbGRyLm5ldGxpZnkuYXBwL2RhdGEvYm9ub2JvX2ZhY2VzLmNzdicpIHw+XG4gIG5hLm9taXQoKSBcbmdyYXRlZnVsIDwtIHJlYWQuY3N2KCdodHRwczovL3NsZHIubmV0bGlmeS5hcHAvZGF0YS9ncmF0aXR1ZGUtZXhwZXJpbWVudC5jc3YnKSBcblxuZWxlcGhhbnRfc3VydmV5IDwtIHJlYWQuY3N2KCdkYXRhL2VsZXBoYW50U3VydmV5LmNzdicpXG5nYXBtaW5kZXJfY2xlYW4gPC0gcmVhZC5jc3YoJ2RhdGEvZ2FwbWluZGVyX2NsZWFuLmNzdicpXG5IYURpdmVQYXJhbWV0ZXJzIDwtIHJlYWQuY3N2KCdkYXRhL0hhRGl2ZVBhcmFtZXRlcnMuY3N2JylcbilcblxuIyBUT0RPOiBGSVggVEhJUz8/P1xuaWYgKEZBTFNFKSAge1xuICBlYXJuIDwtIGZvcmVpZ246OnJlYWQuZHRhKCdkYXRhL2hlaWdodHMuZHRhJykgfD5cbiAgbXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT0gMiwgJ2ZlbWFsZScsICdtYWxlJykpIHw+XG4gIG5hLm9taXQoKSB8PlxuICBkcGx5cjo6ZmlsdGVyKGVhcm4gPiAwKVxufVxuZWFybiA8LSByZWFkLmNzdignZGF0YS9oZWlnaHRzLmNzdicpIHw+XG4gIG11dGF0ZShzZXggPSBpZmVsc2Uoc2V4ID09IDIsICdmZW1hbGUnLCAnbWFsZScpKSB8PlxuICBuYS5vbWl0KCkgfD5cbiAgZHBseXI6OmZpbHRlcihlYXJuID4gMCkifQ==
+eyJhdHRyIjp7ImF1dG9ydW4iOmZhbHNlLCJlY2hvIjpmYWxzZSwiZWRpdCI6ZmFsc2UsImV2YWwiOnRydWUsImV4ZXJjaXNlIjpbIm5lcmQtbG0iXSwiaW5jbHVkZSI6ZmFsc2UsIm91dHB1dCI6ZmFsc2UsInNldHVwIjp0cnVlfSwiY29kZSI6IlxuXG50aGVtZV9zZXQodGhlbWVfYncoYmFzZV9zaXplPTE2KSlcblxua25pdHI6Om9wdHNfY2h1bmskc2V0KFxuICBlY2hvID0gRkFMU0UsXG4gIGZpZy5hbGlnbiA9IFwiY2VudGVyXCIsXG4gIGZpZy53aWR0aCA9IDYsIGZpZy5oZWlnaHQgPSAyLjUpXG5cbk1JX2xlYWQgPC0gXG4gIHJlYWQuY3N2KGZpbGU9J2h0dHBzOi8vc2xkci5uZXRsaWZ5LmFwcC9kYXRhL01JX2xlYWQuY3N2JylcblxuXG5zZXQuc2VlZCgxNClcbmJvbm9ib3MgPC0gXG4gIHJlYWQuY3N2KCdodHRwczovL3NsZHIubmV0bGlmeS5hcHAvZGF0YS9ib25vYm9fZmFjZXMuY3N2JykgfD5cbiAgbmEub21pdCgpIFxuXG5ncmF0ZWZ1bCA8LSBcbiAgcmVhZC5jc3YoJ2h0dHBzOi8vc2xkci5uZXRsaWZ5LmFwcC9kYXRhL2dyYXRpdHVkZS1leHBlcmltZW50LmNzdicpIFxuXG5lbGVwaGFudF9zdXJ2ZXkgPC0gcmVhZC5jc3YoJ2RhdGEvZWxlcGhhbnRTdXJ2ZXkuY3N2JylcbmdhcG1pbmRlcl9jbGVhbiA8LSByZWFkLmNzdignZGF0YS9nYXBtaW5kZXJfY2xlYW4uY3N2JylcbkhhRGl2ZVBhcmFtZXRlcnMgPC0gcmVhZC5jc3YoJ2RhdGEvSGFEaXZlUGFyYW1ldGVycy5jc3YnKVxuXG4jIFRPRE86IEZJWCBUSElTPz8/XG5pZiAoRkFMU0UpICB7XG4gIGVhcm4gPC0gZm9yZWlnbjo6cmVhZC5kdGEoJ2RhdGEvaGVpZ2h0cy5kdGEnKSB8PlxuICBtdXRhdGUoc2V4ID0gaWZlbHNlKHNleCA9PSAyLCAnZmVtYWxlJywgJ21hbGUnKSkgfD5cbiAgbmEub21pdCgpIHw+XG4gIGRwbHlyOjpmaWx0ZXIoZWFybiA+IDApXG59XG5lYXJuIDwtIHJlYWQuY3N2KCdkYXRhL2hlaWdodHMuY3N2JykgfD5cbiAgbXV0YXRlKHNleCA9IGlmZWxzZShzZXggPT0gMiwgJ2ZlbWFsZScsICdtYWxlJykpIHw+XG4gIG5hLm9taXQoKSB8PlxuICBkcGx5cjo6ZmlsdGVyKGVhcm4gPiAwKSJ9
 </script>
 </div>
 <style type="text/css">
@@ -800,6 +1003,8 @@ Solution:
 <p>What’s next? Before we interpret the results of a model, we have to be confident that we trust the model is appropriate enough for the data, and fits well enough, to produce results that will be reliable.</p>
 <p>So, next module, we’ll learn to do model assessment (checking that conditions are met to verify that a model is appropriate for a particular dataset).</p>
 <p>We will also go into <em>much</em> more detail about how to interpret our fitted model!</p>
+
+
 <script type="webr-data">
 eyJvcHRpb25zIjp7ImJhc2VVcmwiOiJodHRwczovL3dlYnIuci13YXNtLm9yZy92MC41LjQvIn0sInBhY2thZ2VzIjp7InBrZ3MiOlsiZXZhbHVhdGUiLCJrbml0ciIsImh0bWx0b29scyIsImRwbHlyIiwidGlkeXIiLCJyZWFkciIsInN0cmluZ3IiLCJnZ3Bsb3QyIiwiZ2dmb3JtdWxhIiwiZ2dmb3JjZSJdLCJyZXBvcyI6W119LCJyZW5kZXJfZGYiOiJkZWZhdWx0In0=
 </script>
@@ -819,8 +1024,7 @@ WyJkYXRhL2dyYXRpdHVkZS1leHBlcmltZW50LmNzdiIsImRhdGEvTWFtbWFsTWV0YWJvbGljUmF0ZXMu
 </script>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -1032,9 +1236,9 @@ eyJjb250ZW50cyI6W119
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../..";
-window._ojs.paths.runtimeToRoot = "../../..";
-window._ojs.paths.docToRoot = "";
+window._ojs.paths.runtimeToDoc = "../../quarto";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "..";
 window._ojs.selfContained = false;
 window._ojs.runtime.interpretFromScriptTags();
 </script>
@@ -1455,9 +1659,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../quarto/lm-plan.html" class="pagination-link" aria-label="Model Planning for Inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Model Planning for Inference</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../quarto/lm-assess.html" class="pagination-link" aria-label="Model Assessment">
+        <span class="nav-page-text">Model Assessment</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-fit.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
