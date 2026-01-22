@@ -1,5 +1,6 @@
 ---
 title: "Install R and RStudio"
+author: "Stacy DeRuiter and Randall Pruim"
 ---
 
 ```{r oldsetup, include=FALSE}
@@ -8,9 +9,9 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
 
 ## Motivation
 
-One way to access R and RStudio is via an account at [posit.cloud](https://posit.cloud). All we need to do is log in, with nothing to install or maintain.
+One way to access R and RStudio is via an account at [posit.cloud](https://posit.cloud) or on a posit Workbench server (like <https://r.stem.calvin.edu>). All we need to do is log in, with nothing to install or maintain.
 
-**For many, this cloud approach is a great way to use RStudio, and they have no reason to install a standalone copy of the software on a personal computer. If you are happy using the server, exit this tutorial now and continue happily using the server!**
+**For many, this cloud approach is a great way to use RStudio, and they have no reason to install a standalone copy of the software on a personal computer. If you are happy using a server, exit this tutorial now and continue happily using the server!**
 
 If you have concerns about your internet bandwidth, speed, usage limits, or firewalls, or if you want to be able to work on assignments for this class somewhere *without* internet access, or if you need to analyze really large datasets or fit complex models, you may want to install R and RStudio and work locally instead of on the server.
 
@@ -134,3 +135,14 @@ You don't ever have to open or access R directly; RStudio does it all for you.
 In case of any errors or problems, contact me (stacy.deruiter at calvin.edu) anytime and I'll do my best to help.
 
 (Don't contact school help desks; they don't support this software).
+
+:::{.callout-note}
+### Positron 
+
+Posit has a newer IDE called Positron. It is very similar to VS Code, with some extra features to simplify data analysis. Especially if you are 
+already familiar with VS Code, you might consider using Positron instead of RStudio.  Give them both a try and see which you prefer.
+
+In the next year or so, Posit expects to have cloud versions of 
+Positron available.  For now, it is only available on your local
+machine.
+:::

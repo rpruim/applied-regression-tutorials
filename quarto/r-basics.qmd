@@ -1,9 +1,11 @@
 ---
 title: "R Basics"
-author: "Stacy DeRuiter"
+author: "Stacy DeRuiter and Randall Pruim"
 date: "last-modified"
 format: live-html
 webr:
+  resources:
+    - data
   packages:
     - dplyr
     - tidyr
@@ -15,6 +17,7 @@ webr:
     - reactable
   cell-options:
     autorun: false
+    persist: true
 engine: "knitr"
 toc: true
 ---
@@ -24,7 +27,7 @@ toc: true
 ```{webr}
 #| setup: true
 #| autorun: true
-#| include: false
+#| include: true
 #| exercise:
 #|   - find-sqrt
 #|   - round-sqrt
@@ -55,7 +58,9 @@ options("readr.edition" = 1)
 
 data(HELPrct, package = "mosaicData")
 
-MI_lead <- read_csv(file='https://sldr.netlify.app/data/MI_lead.csv')
+# MI_lead <- read_csv(file='https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- read_csv('data/MI_lead.csv')
+
 ```
 
 ```{=html}
@@ -82,7 +87,8 @@ table, td, th { border:0px; }
 
 ## Your Mission
 
-The purpose of this tutorial is to help you start to get familiar with the way R works, and some basic R commands...even if you haven't yet installed R on your computer or made a [posit.cloud](https://posit.cloud) account.
+The purpose of this tutorial is to help you start to get familiar with the way R works, and some basic R commands.
+<!-- ..even if you haven't yet installed R on your computer or made a [posit.cloud](https://posit.cloud) account. -->
 
 This tutorial environment uses [webr](#0), which lets you read some helpful information, then immediately practice writing and running your own R code, *all in your web browser*.
 
@@ -92,9 +98,30 @@ Here's hoping it provides a nice, gentle introduction in a controlled environmen
 
 You will do most of your work in R with *code* or *commands*. Instead of pointing and clicking, you will type one or more lines of code, which R will *execute* (doing the work you have asked it to do).
 
-Then, R will return the results of whatever operation you asked it to do - sometimes producing a plot, other times creating a plot.
+Then, R will return the results of whatever operation you asked it to do.
+That might be a number, or a table, or a plot, depending on what you 
+asked for.
 
+```{webr}
+#| exercise: two-plus-two
+2 + 2
+```
 Sometimes executing code has almost no visible effect (no plot or text output is produced), but instead some object is created and stored in R's *environment* for later use.
+
+```{webr}
+#| exercise: save-two-plus-two
+# this saves the value 4 in a variable called 'four'.
+# no output is visible.
+
+four <- 2 + 2
+```
+
+The value saved in `four` can be used later.
+
+```{webr}
+#| exercise: show-four
+four
+```
 
 ### Two Key Questions
 
@@ -455,27 +482,72 @@ For example, if you want to know about the function `nrow()`:
 
 ## Reading in data from a file
 
-For this class, you will often be asked to analyze data that is stored in files that are available online - usually in csv format. It's simple to read them into R. For example, we can read in the file MI_lead.csv, which is stored at <https://sldr.netlify.app/data/MI_lead.csv> using the function `read_csv()` (from package `readr` or super-package `tidyverse`):
+For this class, you will often be asked to analyze data that is stored in files that are available online - usually in csv format. It's simple to read them into R. For example, we can read in the file MI_lead.csv, which is stored at <https://sldr.netlify.app/data/MI_lead.csv> using the function `readr::read_csv()` (from package `readr` or super-package `tidyverse`):
+
 
 ```{r}
 #| echo: true
 #| eval: false
 
+# Note: You don't have to (and can't) run this code here in the tutorial,
+# but the data set has already been pre-loaded for you.
+
 library(readr) # the readr package contains the read_csv() function
-MI_lead <- read_csv(file = 'https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- 
+  read_csv(file = 'https://sldr.netlify.app/data/MI_lead.csv')
 ```
+
+:::{.callout-warning}
+### Loading data from netlify doesn't work in this tutorial.
+
+Instead, I've put the data into a `data/` folder
+that is available in this tutorial.  So we can 
+read it in like this:
+
+```{webr}
+#| exercise: load-MI_lead
+dir('data')
+MI_lead <- read_csv('data/MI_lead.csv')
+glimpse(MI_lead)
+```
+
+
+You could do the same thing in your quarto file if you
+first download the data set and put it into a `data/` folder.
+But in that situation, it is just as convenient to
+read it from the internat.
+:::
+
+:::{#exr-other-data}
+Try changing `MI_lead.csv` to one of the other files listed by `dir('data')`.
+:::
+
 
 ### The most common mistakes
 
 The code below contains several of the **most common mistakes** students make when they try to read in a data file. See if you can find and correct them **all**!
 
-The code below - if corrected - *would* (on posit.cloud or in standalone R/RStudio) run without an error and read in some baseball statistics from the file <http://stacyderuiter.github.io/teachingdata/data-raw/baseball.csv>.
+The code below - if corrected - *would* 
+<!-- (on posit.cloud or in standalone R/RStudio)  -->
+run without an error and read in some baseball statistics from the file <https://stacyderuiter.github.io/teachingdata/data-raw/baseball.csv>.
 
-Here in this tutorial, it may give the error: `! curl package not installed, falling back to using url()` -- there's not a straightforward fix, sorry, but try it on the server if you want to prove to yourself that it works!
+:::{.callout-note}
+### Warning you can ignore
+
+When you load this data set (after correcting the problems in the code,
+you will see the message 
+```
+! curl package not installed, falling back to using url()
+```
+
+That's just letting you know that in the tutorial environment `curl` -- the 
+preferred tool for downloading files from the internet -- is not available,
+so another method is being used instead.  You can safely ignore this warning.
+:::
 
 ```{webr}
 #| exercise: baseball-mistakes
-read_csv(http://stacyderuiter.github.io/teachingdata/data-raw/base)
+read_csv(https://stacyderuiter.github.io/teachingdata/data-raw/Baseball)
 ```
 
 :::: {.hint exercise="baseball-mistakes"}
@@ -484,9 +556,10 @@ read_csv(http://stacyderuiter.github.io/teachingdata/data-raw/base)
 
 Think about:
 
--   Is the filename or URL spelled correctly, with no typos?
+-   Is the filename or URL spelled correctly, with no typos and correct capitalization?
 -   Is the filename or URL in quotation marks (either " or ' work equally)?
--   Is the URL complete (including the file extension ".csv")
+-   Is the URL complete (including the file extension ".csv" at the end 
+and "https://" or "http://" at the beginning)?
 -   Was `<-` used to assign a *name* to the dataset once read in? (Otherwise it will just be uselessly printed to the screen and not available for later use!)
 :::
 ::::
@@ -496,7 +569,10 @@ Think about:
 ## Solution
 
 ``` r
-baseball_data <- read_csv(file = 'http://stacyderuiter.github.io/teachingdata/data-raw/baseball.csv')
+baseball_data <- 
+  read_csv(
+    'http://stacyderuiter.github.io/teachingdata/data-raw/baseball.csv'
+  )
 ```
 :::
 ::::
@@ -507,22 +583,43 @@ The same function, `read_csv()`, can be used to read in a local file. You just n
 
 We won't do an example in this tutorial because it's not straightforward to work with local files within a tutorial environment, but you can practice it once you are working independently in RStudio.
 
-If you are working on the server r.cs.calvin.edu, you will have to *upload* files to your cloud space on the server before you can read them in (RStudio on the server cannot access files on your computer's hard drive). Look in the "Files" tab on the lower right, and then click "Upload."
+If you are working on the server [r.stem.calvin.edu](https://r.stem.calvin.edu), you will have to *upload* files to your cloud space on the server before you can read them in (RStudio on the server cannot access files on your computer's hard drive). Look in the "Files" tab on the lower right, and then click "Upload."
 
-### Named input arguments
+:::{.callout-note}
+### Named and positional input arguments
 
-The input argument we provided to R is the URL (in quotes -- either single or double quotes are fine). But notice that this time, we gave the input argument a *name*, "file", and specified its value with an equal sign.
+In R, arguments to funcitons can be provided either *positionally* (in order) or *by name*. Named arguemnts are matched up first, and then any remaining
+unnamed arguments are matched in order.  Very often the most important
+arguments are required and at the beginning of the list, so we often
+omit their names.  Later arguments are typically optional and have 
+default values.  We can use their names to set just the ones we are 
+interested in changing.
 
-This is not *required* - the command works fine without it:
+With `read_csv()`, the first argument is `file`, and we always need 
+to specify it.  While you can type `file = `, we usually won't do that.
+We just have to put the file name first in the argument list.
+
+In other words, the following are equivalent:
+
 
 ```{r}
 #| echo: true
 #| eval: false
 
-MI_lead <- read_csv('https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- 
+  read_csv(file = 'https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- 
+  read_csv('https://sldr.netlify.app/data/MI_lead.csv')
 ```
+:::
 
-However, if a function has *more than just one* input argument, it's good to get in the habit of providing names for the inputs. If you provide names, then the order in which you list the inputs doesn't matter; without names, **the order matters** and you have to use ? to figure out what order R expects!
+:::{.callout-tip}
+### By name or by position?
+
+Best practice is to use names for all but the first one or two arguments.
+That makes your code easier to read and avoids mistakes of assigning 
+values to unintended arguments.
+:::
 
 ### Renaming variables in a dataset
 
@@ -534,7 +631,8 @@ If we wanted to use a clearer (though longer) variable name, we might prefer "pr
 
 We use the code:
 
-```{r, rename-MI_lead, echo=TRUE, eval = FALSE}
+```{webr}
+#| exercise: rename-MI_lead
 MI_lead <- MI_lead |>
   rename(prop_elevated_lead_2005 = ELL2005)
 
@@ -549,7 +647,36 @@ The code above uses some tools you've seen, and some more advanced ones you have
 
 *See...you can already start to make sense of even some pretty complicated (and useful) code.*
 
-Note: If you give R several commands, *not* connected by pipes, it will do the first, then the second, then the third, and so on. R doesn't need the pipe for permission to continue! Instead, the pipe tells R to take the *results* from the first command, and use them as the input or starting material for the next command.
+Note: If you give R several commands, *not* connected by pipes, it will do the first, then the second, then the third, and so on. R doesn't need the pipe for permission to continue! Instead, the pipe tells R to take the *results* from the first command, and use them as the **first input** 
+for the next command.  So the following are equivalent:
+
+```r
+foo(x, y, z)
+x |> foo(y, z)
+```
+
+This is very handy when working with a set of functions that all
+
+* take the same kind of first input,
+* return that same kind of output.
+
+These commands can be "chained" together with pipes to do a sequence of operations. A good example of this is the data wrangling functions
+in the `tidyverse` packages (like `dplyr` and `tidyr`). These all
+use a data frame as their first argument and return a data frame as their 
+output.
+
+Here's the basic template for chaining data transformations:
+
+
+```{r}
+#| eval: false
+modfied_data <-
+  original_data |>
+  data_transformation1(...) |>
+  data_transformation2(...) |>
+  data_transformation3(...) 
+```
+
 
 ### Check out the data
 
@@ -598,7 +725,17 @@ You should now be able to define and work with some R-related terms:
 -   *code* or *commands* that R can *execute*
 -   *function* and *inputs* or *arguments*
 -   *assignment arrow*: `<-`
--   *pipe* = "and then...": `|>` (note: `|>` is an older way of writing a pipe, and it does basically the *same* thing as `|>`)
+-   *pipe* = "and then...": `|>` 
+
+:::{.callout-note}
+### Old pipes
+
+`%>%` (in the `magrittr` package) is an older way of writing a pipe, 
+and it does basically the *same* thing as `|>`. 
+There is no reason to use it now, but you may see 
+it in older code examples.
+:::
+
 
 ## Congratulations!
 

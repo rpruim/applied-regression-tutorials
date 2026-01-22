@@ -10,7 +10,7 @@ toc: true
 
 This site provides tutorials and reference guides introducing:
 
--    using R/RStudio for reproducible research with Quarto,
+-   using R/RStudio for reproducible research with Quarto,
 
 -   data visualization with `ggformula` (`ggplot`?)
 

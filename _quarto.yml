@@ -2,7 +2,7 @@ project:
   type: website
 
   resources: 
-    - "data/*"
+    - "quarto/data/*"
 
 website:
   title: "Applied Regression with R"
