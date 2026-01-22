@@ -17,7 +17,6 @@ webr:
     - reactable
   cell-options:
     autorun: false
-    persist: true
 engine: "knitr"
 toc: true
 ---
