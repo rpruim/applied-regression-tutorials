@@ -38,8 +38,8 @@ website:
         contents: 
           - href: quarto/lm-plan.qmd
             text: "Model Planning for Inference"
-          # - href: quarto/lm-fit.qmd
-          #   text: "Model Fitting and Equation"
+          - href: quarto/lm-fit.qmd
+            text: "Model Fitting and Equation"
           - href: quarto/lm-assess.qmd
             text: "Model Assessment"
           - href: quarto/lm-interp.qmd

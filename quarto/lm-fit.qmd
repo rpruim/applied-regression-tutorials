@@ -34,14 +34,17 @@ library(webexercises)
 library(tidyverse)
 library(ggformula)
 
-theme_set(theme_bw(base_size=16))
+theme_set(theme_bw(base_size = 16))
 
 knitr::opts_chunk$set(
   echo = FALSE,
   fig.align = "center",
-  fig.width = 6, fig.height = 2.5)
+  fig.width = 6,
+  fig.height = 2.5
+)
 
-MI_lead <- read.csv(file='https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- 
+  read.csv(file = 'https://sldr.netlify.app/data/MI_lead.csv')
 ```
 
 ```{webr}
@@ -58,21 +61,30 @@ knitr::opts_chunk$set(
   fig.align = "center",
   fig.width = 6, fig.height = 2.5)
 
-MI_lead <- read.csv(file='https://sldr.netlify.app/data/MI_lead.csv')
+MI_lead <- 
+  read.csv(file='https://sldr.netlify.app/data/MI_lead.csv')
 
 
 set.seed(14)
-bonobos <- read.csv('https://sldr.netlify.app/data/bonobo_faces.csv') |>
+bonobos <- 
+  read.csv('https://sldr.netlify.app/data/bonobo_faces.csv') |>
   na.omit() 
-grateful <- read.csv('https://sldr.netlify.app/data/gratitude-experiment.csv') 
+
+grateful <- 
+  read.csv('https://sldr.netlify.app/data/gratitude-experiment.csv') 
 
 elephant_survey <- read.csv('data/elephantSurvey.csv')
 gapminder_clean <- read.csv('data/gapminder_clean.csv')
 HaDiveParameters <- read.csv('data/HaDiveParameters.csv')
-)
 
-# FIX THIS???
-earn <- foreign::read.dta('data/heights.dta') |>
+# TODO: FIX THIS???
+if (FALSE)  {
+  earn <- foreign::read.dta('data/heights.dta') |>
+  mutate(sex = ifelse(sex == 2, 'female', 'male')) |>
+  na.omit() |>
+  dplyr::filter(earn > 0)
+}
+earn <- read.csv('data/heights.csv') |>
   mutate(sex = ifelse(sex == 2, 'female', 'male')) |>
   na.omit() |>
   dplyr::filter(earn > 0)
@@ -127,7 +139,7 @@ Consider the line below.
 
 ```{r}
 #| echo: false
-gf_fun(4*x + 2 ~ x, xlim = c(-2, 5)) |>
+gf_fun(4 * x + 2 ~ x, xlim = c(-2, 5)) |>
   gf_refine(scale_y_continuous(minor_breaks = seq(-4, 24, by = 2)))
 ```
 
@@ -142,7 +154,7 @@ where $m$ is the **slope** and $b$ is the $y$-intercept (the value of $y$ when $
 When $x = 0$ on the line we just looked at, $y = 2$, so the intercept is $2$. It's indicated by the red dot below:
 
 ```{r}
-gf_fun(4*x + 2 ~ x, xlim = c(-2, 5)) |>
+gf_fun(4 * x + 2 ~ x, xlim = c(-2, 5)) |>
   gf_point(2 ~ 0, color = "red") |>
   gf_point(10 ~ 2, color = "skyblue") |>
   gf_refine(scale_y_continuous(minor_breaks = seq(-4, 24, by = 2)))
@@ -303,7 +315,7 @@ knitr::include_graphics('images/armando-6.jpg')
 set.seed(4)
 pigeons <- read.csv('https://sldr.netlify.app/data/pigeons.csv')
 pigeons <- pigeons |>
-  mutate(Age = round(rnorm(nrow(pigeons), mean = 1.8, sd =0.6), digits = 1)) |>
+  mutate(Age = round(rnorm(nrow(pigeons), mean = 1.8, sd = 0.6), digits = 1)) |>
   select(Unirate, OwnerName, Sex, Age)
 pander::pander(pigeons)
 ```
@@ -318,15 +330,12 @@ We might want to consider a model where the pigeon `Unirate` scores are $iid$ (i
 ```{r results = 'asis'}
 #| label: tiny-lm
 
-opts <- sample(c(answer = "None",
-        "One",
-        "Two",
-        "4 x 46",
-        "4 x 47"
-        ))
+opts <- sample(c(answer = "None", "One", "Two", "4 x 46", "4 x 47"))
 
-cat("How could we reformulate that model *as a linear regression*?",
-    longmcq(opts))
+cat(
+  "How could we reformulate that model *as a linear regression*?",
+  longmcq(opts)
+)
 ```
 :::
 
@@ -712,7 +721,8 @@ opts3 <- sample(c(answer = "15.81",
 
 cat("What is sigma, the standard deviation of the residuals, for the model you just fitted?",
     longmcq(opts3))
-```
+`
+``
 :::
 
 <!-- ## Another Categorical Example -->

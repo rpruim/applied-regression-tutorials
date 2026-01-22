@@ -117,10 +117,11 @@ four <- 2 + 2
 
 The value saved in `four` can be used later.
 
-```{webr}
-#| exercise: show-four
-four
-```
+:::{#exr-show-four}
+Add an additional line of code in the previous chunk containing just `four`
+
+Now what happens when you run the code chunk?
+:::
 
 ### Two Key Questions
 
@@ -587,7 +588,7 @@ If you are working on the server [r.stem.calvin.edu](https://r.stem.calvin.edu),
 :::{.callout-note}
 ### Named and positional input arguments
 
-In R, arguments to funcitons can be provided either *positionally* (in order) or *by name*. Named arguemnts are matched up first, and then any remaining
+In R, arguments to functions can be provided either *positionally* (in order) or *by name*. Named arguemnts are matched up first, and then any remaining
 unnamed arguments are matched in order.  Very often the most important
 arguments are required and at the beginning of the list, so we often
 omit their names.  Later arguments are typically optional and have 
