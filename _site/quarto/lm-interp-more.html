@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stacy DeRuiter">
-<meta name="dcterms.date" content="2025-05-19">
+<meta name="dcterms.date" content="2026-01-22">
 
 <title>More Interpretation and Inference for Regression Models – Applied Regression with R</title>
 <style>
@@ -347,7 +347,7 @@ window.Quarto = {
   <li><a href="#aic-practice" id="toc-aic-practice" class="nav-link" data-scroll-target="#aic-practice">AIC Practice</a></li>
   <li><a href="#ic-how-big-a-difference" id="toc-ic-how-big-a-difference" class="nav-link" data-scroll-target="#ic-how-big-a-difference">IC, How big a difference?</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/stacyderuiter/applied-regression/edit/main/quarto/lm-interp-more.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/stacyderuiter/applied-regression/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-interp-more.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -371,7 +371,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 19, 2025</p>
+      <p class="date">January 22, 2026</p>
     </div>
   </div>
   
@@ -559,8 +559,8 @@ Solution:
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 You test the hypothesis that the slope of the life_model is zero. What is the p-value of the test?
-<div id="radio_SLVLIJEEJA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SLVLIJEEJA" value="answer"> <span>0.00377</span></label><label><input type="radio" autocomplete="off" name="radio_SLVLIJEEJA" value=""> <span>Something else</span></label><label><input type="radio" autocomplete="off" name="radio_SLVLIJEEJA" value=""> <span>0.0424</span></label><label><input type="radio" autocomplete="off" name="radio_SLVLIJEEJA" value=""> <span>4.22e-14</span></label>
+<div id="radio_YPVSSPJYHE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YPVSSPJYHE" value="answer"> <span>0.00377</span></label><label><input type="radio" autocomplete="off" name="radio_YPVSSPJYHE" value=""> <span>4.22e-14</span></label><label><input type="radio" autocomplete="off" name="radio_YPVSSPJYHE" value=""> <span>0.0424</span></label><label><input type="radio" autocomplete="off" name="radio_YPVSSPJYHE" value=""> <span>Something else</span></label>
 </div>
 </div>
 </div>
@@ -624,8 +624,8 @@ Solution:
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 In our model to compare the gratitude and hassles groups, the grouphassles coefficient estimate is about -1.54. What does this mean?
-<div id="radio_CNMSBJONZE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CNMSBJONZE" value=""> <span>When the amount of 'hassles' increases by one unit, the gratitude_score goes down by 1.54 units.</span></label><label><input type="radio" autocomplete="off" name="radio_CNMSBJONZE" value=""> <span>Something else</span></label><label><input type="radio" autocomplete="off" name="radio_CNMSBJONZE" value=""> <span>The mean gratitude score is 1.54 units higher in the hassles group than in the gratitude group.</span></label><label><input type="radio" autocomplete="off" name="radio_CNMSBJONZE" value=""> <span>The mean gratitude_score for people in the hassles group is -1.54.</span></label><label><input type="radio" autocomplete="off" name="radio_CNMSBJONZE" value="answer"> <span>The mean gratitude_score is 1.54 units lower in the hassles group than in the gratitude group.</span></label>
+<div id="radio_SDYJMWPDJB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SDYJMWPDJB" value=""> <span>The mean gratitude_score for people in the hassles group is -1.54.</span></label><label><input type="radio" autocomplete="off" name="radio_SDYJMWPDJB" value=""> <span>Something else</span></label><label><input type="radio" autocomplete="off" name="radio_SDYJMWPDJB" value=""> <span>When the amount of 'hassles' increases by one unit, the gratitude_score goes down by 1.54 units.</span></label><label><input type="radio" autocomplete="off" name="radio_SDYJMWPDJB" value=""> <span>The mean gratitude score is 1.54 units higher in the hassles group than in the gratitude group.</span></label><label><input type="radio" autocomplete="off" name="radio_SDYJMWPDJB" value="answer"> <span>The mean gratitude_score is 1.54 units lower in the hassles group than in the gratitude group.</span></label>
 </div>
 </div>
 </div>
@@ -695,12 +695,12 @@ F-statistic: 11.15 on 2 and 193 DF,  p-value: 2.612e-05</code></pre>
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 If the null hypothesis is true, what will the value of the F-ratio be?
-<div id="radio_GFVJLDNCTB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GFVJLDNCTB" value=""> <span>Very Large</span></label><label><input type="radio" autocomplete="off" name="radio_GFVJLDNCTB" value="answer"> <span>Close to 0</span></label><label><input type="radio" autocomplete="off" name="radio_GFVJLDNCTB" value=""> <span>It depends…</span></label><label><input type="radio" autocomplete="off" name="radio_GFVJLDNCTB" value=""> <span>Close to 1</span></label>
+<div id="radio_XDLEACRIRD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XDLEACRIRD" value=""> <span>It depends…</span></label><label><input type="radio" autocomplete="off" name="radio_XDLEACRIRD" value=""> <span>Very Large</span></label><label><input type="radio" autocomplete="off" name="radio_XDLEACRIRD" value=""> <span>Close to 1</span></label><label><input type="radio" autocomplete="off" name="radio_XDLEACRIRD" value="answer"> <span>Close to 0</span></label>
 </div>
 If the population group means are actually very different, with little variation within groups, what will the value of the F-ratio be?
-<div id="radio_ZDRLLOUWFS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZDRLLOUWFS" value=""> <span>Close to 1</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRLLOUWFS" value=""> <span>It depends…</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRLLOUWFS" value="answer"> <span>Very Large</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRLLOUWFS" value=""> <span>Close to 0</span></label>
+<div id="radio_IYLIETTJZJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IYLIETTJZJ" value=""> <span>It depends…</span></label><label><input type="radio" autocomplete="off" name="radio_IYLIETTJZJ" value="answer"> <span>Very Large</span></label><label><input type="radio" autocomplete="off" name="radio_IYLIETTJZJ" value=""> <span>Close to 1</span></label><label><input type="radio" autocomplete="off" name="radio_IYLIETTJZJ" value=""> <span>Close to 0</span></label>
 </div>
 </div>
 </div>
@@ -836,12 +836,12 @@ Hints…
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 What is the difference in AIC between the two gratitude models you just fitted?
-<div id="radio_EXROIHILTQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EXROIHILTQ" value=""> <span>834.5; the model with the group predictor has lower AIC.</span></label><label><input type="radio" autocomplete="off" name="radio_EXROIHILTQ" value="answer"> <span>17.4; the model with the group predictor has lower AIC.</span></label><label><input type="radio" autocomplete="off" name="radio_EXROIHILTQ" value=""> <span>The AIC values for the two models are about the same</span></label><label><input type="radio" autocomplete="off" name="radio_EXROIHILTQ" value=""> <span>17.4; the intercept-only model has lower AIC</span></label>
+<div id="radio_HUINDEYVVL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HUINDEYVVL" value=""> <span>The AIC values for the two models are about the same</span></label><label><input type="radio" autocomplete="off" name="radio_HUINDEYVVL" value=""> <span>834.5; the model with the group predictor has lower AIC.</span></label><label><input type="radio" autocomplete="off" name="radio_HUINDEYVVL" value="answer"> <span>17.4; the model with the group predictor has lower AIC.</span></label><label><input type="radio" autocomplete="off" name="radio_HUINDEYVVL" value=""> <span>17.4; the intercept-only model has lower AIC</span></label>
 </div>
 Which model is better, according to AIC?
-<div id="radio_LXCFBCANCA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LXCFBCANCA" value="answer"> <span>Model with group predictor</span></label><label><input type="radio" autocomplete="off" name="radio_LXCFBCANCA" value=""> <span>They are both about the same</span></label><label><input type="radio" autocomplete="off" name="radio_LXCFBCANCA" value=""> <span>Intercept-only model</span></label>
+<div id="radio_TRDWUBFKHU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TRDWUBFKHU" value=""> <span>Intercept-only model</span></label><label><input type="radio" autocomplete="off" name="radio_TRDWUBFKHU" value="answer"> <span>Model with group predictor</span></label><label><input type="radio" autocomplete="off" name="radio_TRDWUBFKHU" value=""> <span>They are both about the same</span></label>
 </div>
 </div>
 </div>
@@ -1529,4 +1529,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/stacyderuiter/applied-regression/edit/main/quarto/lm-interp-more.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/stacyderuiter/applied-regression/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-interp-more.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

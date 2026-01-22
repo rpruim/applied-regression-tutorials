@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Stacy DeRuiter">
-<meta name="dcterms.date" content="2025-05-19">
+<meta name="dcterms.date" content="2026-01-22">
 
 <title>Interpretation and Inference for Regression Models – Applied Regression with R</title>
 <style>
@@ -334,7 +334,7 @@ window.Quarto = {
   <li><a href="#test-for-a-slope" id="toc-test-for-a-slope" class="nav-link" data-scroll-target="#test-for-a-slope">Test for a slope</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/stacyderuiter/applied-regression/edit/main/quarto/lm-interp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/stacyderuiter/applied-regression/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-interp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -358,7 +358,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 19, 2025</p>
+      <p class="date">January 22, 2026</p>
     </div>
   </div>
   
@@ -529,16 +529,16 @@ Solution:
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 What is the intercept estimate for the model you just fitted?
-<div id="radio_CHACSFMYHT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CHACSFMYHT" value=""> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_CHACSFMYHT" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_CHACSFMYHT" value="answer"> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_CHACSFMYHT" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_CHACSFMYHT" value=""> <span>0.023</span></label>
+<div id="radio_SIUUMIYWHV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SIUUMIYWHV" value=""> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_SIUUMIYWHV" value=""> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_SIUUMIYWHV" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_SIUUMIYWHV" value="answer"> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_SIUUMIYWHV" value=""> <span>0.926</span></label>
 </div>
 What is the slope for the model you just fitted?
-<div id="radio_VZNTYOTYFV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VZNTYOTYFV" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_VZNTYOTYFV" value="answer"> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_VZNTYOTYFV" value=""> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_VZNTYOTYFV" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_VZNTYOTYFV" value=""> <span>0.023</span></label>
+<div id="radio_JCBSPUOYJF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JCBSPUOYJF" value=""> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_JCBSPUOYJF" value="answer"> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_JCBSPUOYJF" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_JCBSPUOYJF" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_JCBSPUOYJF" value=""> <span>2.008</span></label>
 </div>
 What is sigma, the standard deviation of the residuals, for the model you just fitted?
-<div id="radio_MMPQSYENEY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MMPQSYENEY" value=""> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_MMPQSYENEY" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_MMPQSYENEY" value=""> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_MMPQSYENEY" value=""> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_MMPQSYENEY" value="answer"> <span>1.031</span></label>
+<div id="radio_VICWHBFZKK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VICWHBFZKK" value="answer"> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_VICWHBFZKK" value=""> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_VICWHBFZKK" value=""> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_VICWHBFZKK" value=""> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_VICWHBFZKK" value=""> <span>0.926</span></label>
 </div>
 </div>
 </div>
@@ -574,8 +574,8 @@ F-statistic: 0.2312 on 1 and 66 DF,  p-value: 0.6322</code></pre>
 <div class="webex-check webex-box">
 <div class="cell" data-layout-align="center">
 What is the SE for the slope, for the regression to predict normDS as a function of weight for our bonobo dataset?
-<div id="radio_MLLFNEQOFE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MLLFNEQOFE" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_MLLFNEQOFE" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_MLLFNEQOFE" value=""> <span>2.008</span></label><label><input type="radio" autocomplete="off" name="radio_MLLFNEQOFE" value="answer"> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_MLLFNEQOFE" value=""> <span>0.011</span></label>
+<div id="radio_ZJEZMDDZWK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZJEZMDDZWK" value=""> <span>0.926</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEZMDDZWK" value=""> <span>1.031</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEZMDDZWK" value=""> <span>0.011</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEZMDDZWK" value="answer"> <span>0.023</span></label><label><input type="radio" autocomplete="off" name="radio_ZJEZMDDZWK" value=""> <span>2.008</span></label>
 </div>
 </div>
 </div>
@@ -1375,4 +1375,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/stacyderuiter/applied-regression/edit/main/quarto/lm-interp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/stacyderuiter/applied-regression/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto/lm-interp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
