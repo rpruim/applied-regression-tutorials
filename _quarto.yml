@@ -1,5 +1,5 @@
 project:
-  type: websiteA
+  type: website
 
   resources: 
     - "data/*"
