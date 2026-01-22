@@ -13,35 +13,35 @@ website:
       - href: index.qmd
       - section: R Basics
         contents:
-          - href: quarto/install-r.qmd
+          - href: r-install.qmd
             text: "Install R/RStudio"
-          - href: quarto/r-basics.qmd
+          - href: r-basics.qmd
             text: "R Basics"
-          - href: quarto/how-to-quarto.qmd
+          - href: quarto-how-to.qmd
             text: "Using Quarto"
-          - href: quarto/math-notation.qmd
+          - href: quarto-math.qmd
             text: "Mathematical Notation"
-          - href: quarto/r-results.qmd
+          - href: quarto-results.qmd
             text: "R Results in Text"
       - section: Visualization
         contents: 
-          - href: quarto/graphics-design.qmd
+          - href: graphics-design.qmd
             text: "Designing Data Visualizations"
-          - href: quarto/graphics-choose.qmd
+          - href: graphics-choose.qmd
             text: "Choosing a Graph Type"
-          - href: quarto/graphics-code.qmd
+          - href: graphics-code.qmd
             text: "Code Examples"
       - section: Linear Models
         contents: 
-          - href: quarto/lm-plan.qmd
+          - href: lm-plan.qmd
             text: "Model Planning for Inference"
-          - href: quarto/lm-fit.qmd
+          - href: lm-fit.qmd
             text: "Model Fitting and Equation"
-          - href: quarto/lm-assess.qmd
+          - href: lm-assess.qmd
             text: "Model Assessment"
-          - href: quarto/lm-interp.qmd
+          - href: lm-interp.qmd
             text: "Interpretation and Inference"
-          - href: quarto/lm-interp-more.qmd
+          - href: lm-interp-more.qmd
             text: "More Inference"
   navbar:
     search: true
@@ -59,4 +59,3 @@ format:
     toc: true
 
 editor: source
-
