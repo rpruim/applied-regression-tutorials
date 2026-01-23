@@ -25,6 +25,7 @@ webr:
     - pander
     - reactable
     - NHANES
+    - forcats
   cell-options:
     autorun: false
 engine: "knitr"
@@ -48,7 +49,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.height = 3.5)
 
 
-theme_set(theme_minimal())
+theme_set(theme_bw(base_size = 14))
 
 data(Births, package = "mosaicData")
 data(NHANES, package = "NHANES")
@@ -59,6 +60,7 @@ for (y in unique(Births$year)) {
 
 Births1978 <- Births |> 
   dplyr::filter(year == 1978)
+
 data(Galton, package = "mosaicData")
 
 D <- data.frame(
@@ -415,6 +417,7 @@ goal( formula , data = mydata )
 
 #### Your Turn
 
+:::{#exr-births-plot}
 Put each piece in its place in the template below and then run the code to create the plot.
 
 ```{webr}
@@ -450,6 +453,7 @@ Births1978 |>
   head(3) |> 
   select(births, date, day_of_year)
 ```
+:::
 
 ### Using formulas to describe plots
 
@@ -490,6 +494,7 @@ You should see that `gf_point()`'s formula has the shape `y ~ x`, so the y-varia
 
 #### Order matters in formulas!
 
+:::{#exr-gf-point-xy}
 Reverse the roles of the variables, changing `births ~ date` to `date ~ births`. How does the plot change?
 
 ```{webr}
@@ -497,6 +502,7 @@ Reverse the roles of the variables, changing `births ~ date` to `date ~ births`.
 
 gf_point(births ~ date, data = Births1978)
 ```
+:::
 
 ### Spaces
 
@@ -584,12 +590,14 @@ The following sections give examples of how to use many of the `gf_` functions t
 -   You can change the size of the bins using either `bins` (the number of bins) or `binwidth` (the width of the bins). Experiment with different bins, trying to find balance between too many and too few. (If you don't provide `bins` or `binwidth` information, R will just make something up. You can usually do better if you take control.)
 -   To get density instead of counts on the y-axis, switch from function `gf_histogram()` to `gf_dhistogram()`.
 
+:::{#exr-hist}
 Try out the code below, and adjust the number of bins to better display the distribution.
 
 ```{webr}
 #| exercise: hist
 gf_histogram( ~ BPSysAve, data = NHANES, bins = 100)
 ```
+:::
 
 ## Density plots
 
@@ -702,6 +710,7 @@ Adjusting the width of the jittered point-column (by making input `width` *small
 
 ### Making the fixes
 
+:::{#exr-fixed-jitter}
 Can you make it even better than this?
 
 ```{webr}
@@ -710,11 +719,13 @@ Can you make it even better than this?
 gf_violin(BPSysAve ~ MaritalStatus, data = NHANES) |>
   gf_jitter(color = 'grey', alpha = 0.1, width= 0.15)
 ```
+:::
 
 ### Boxplots without Outliers
 
 If you add a jitter plot on a boxplot, any outliers get plotted *twice*: once in the boxplot layer and once in the jitter layer. Not good. You can remove them from the boxplot in this case by setting `outlier.shape = NA`.
 
+:::{#exr-boxplot-no-outliers}
 Try running the example code, then adjust the jitter plot as you think is needed (`color`, transparency `alpha`, `width`).
 
 <!-- ```{webr} -->
@@ -747,14 +758,18 @@ gf_boxplot(faculty_type ~ percentage,
            outlier.shape = NA) |>
   gf_jitter()
 ```
+:::
 
 ## *Sina Plots (o)*
 
-Similar to a jitter plot is a sina plot -- the difference is that the sina plot shapes the dot cloud to indicate data density, rather than fitting all the dots into a rectange.
+Similar to a jitter plot is a sina plot -- the difference is that the sina plot shapes the dot cloud to indicate data density, rather than fitting all the dots into a rectangle.
 
 We need the additional package `ggforce` to make a sina plot using the `gf_sina()` function.
 
-Check it out...and play a bit! What does the sina plot look like overlaid on boxplots? What if you adjust `size`, transparency `alpha`, or even `color`?
+Check it out...and play a bit! 
+
+:::{#exr-sina}
+What does the sina plot look like overlaid on boxplots? What if you adjust `size`, transparency `alpha`, or even `color`?
 
 ```{webr}
 #| exercise: sina-plot
@@ -763,6 +778,7 @@ Check it out...and play a bit! What does the sina plot look like overlaid on box
 gf_sina(faculty_type ~ percentage,
         data = university_teachers)
 ```
+:::
 
 ## Ordering Groups by Median
 
@@ -796,9 +812,10 @@ If you want to use some other function of the second variable, say the `mean()` 
 #| exercise: boxplot-by-mean
 
 
-gf_boxplot(fct_reorder(faculty_type, percentage) ~ percentage, 
-           .fun = mean,
-           data = university_teachers)
+gf_boxplot(
+  fct_reorder(faculty_type, percentage) ~ percentage, 
+  .fun = mean,
+  data = university_teachers)
 ```
 
 (Which ends up looking about the same, in this particular case.)
@@ -1591,7 +1608,7 @@ gf_bar(~Race1, data=NHANES) |>
 
 ## Axis limits
 
-You can also `gf_lims()` to set custom x and y axis limits.
+You can also use `gf_lims()` to set custom x and y axis limits.
 
 How does adjusting the axis limits alter your interpretation of the plot?
 
@@ -1605,8 +1622,9 @@ gf_line(births ~ date, data = Births1978) |>
 ```{webr}
 #| exercise: axis-limits2
 
-
-gf_boxplot(faculty_type ~ percentage, data = university_teachers) |>
+gf_boxplot(
+  faculty_type ~ percentage, 
+  data = university_teachers) |>
   gf_lims(x = c(0, 50))
 ```
 
@@ -1629,9 +1647,10 @@ Setting any of these to `element_blank()` removes them. Try a few different grid
 ```{webr}
 #| exercise: control-grids
 
-
-gf_path(percentage ~ year, color = ~faculty_type,
-        data = university_teachers) |>
+gf_path(
+  percentage ~ year, 
+  color = ~faculty_type,
+  data = university_teachers) |>
   gf_theme(panel.grid.minor = element_blank())
 ```
 
@@ -1650,7 +1669,12 @@ gf_path(percentage ~ year, color = ~faculty_type,
 
 ## *Custom Legend Title (o)*
 
-Sometimes you might want to remove the legend title, or replace it with a more readable one. You can do it with `gf_theme()`. Try the plot below with and without the `gf_theme()` line to see how it changes. Replace `"Activity"` with `""` (empty quotes) to remove the legend title entirely.
+Sometimes you might want to remove the legend title, or replace it with a more readable one. 
+We do this by adjusting the associated **scale**.
+We change scales inside `gf_refine()`.
+
+:::{#exr-custom-legend-title}
+Try the plot below with and without the `gf_refine()` line to see how it changes. Replace `"Activity"` with `""` (empty quotes) to remove the legend title entirely.
 
 ```{webr}
 #| exercise: custom-legend-title
@@ -1658,8 +1682,9 @@ Sometimes you might want to remove the legend title, or replace it with a more r
 gf_bar(~AgeDecade, fill = ~PhysActive, 
        position = 'stack', 
        data = NHANES) |>
-  gf_theme(scale_fill_discrete('Activity'))
+  gf_refine(scale_fill_discrete("Activity"))
 ```
+:::
 
 Notice, we used the function `scale_fill_discrete()` to adjust the legend because we had a graph with a **fill** color tied to a **discrete** (categorical) variable, `PhysActive`. We would replace the function `scale_fill_discrete()` with another depending on variable type and whether our plot call includes `color = ~variable` or `fill = ~variable`:
 

@@ -2,7 +2,8 @@
 title: "R Basics"
 author: "Stacy DeRuiter and Randall Pruim"
 date: "last-modified"
-format: live-html
+format: 
+  live-html: default
 webr:
   resources:
     - data
@@ -159,12 +160,14 @@ We will provide answers to our two questions by filling in the boxes of a basic 
 
 Let's practice what you just learned, trying out the mathematical `sqrt()` and `round()` functions.
 
+:::{#exr-sqrt}
 Edit the code below to compute the square root of 64:
 
 ```{webr}
 #| exercise: find-sqrt
 function(information_R_needs)
 ```
+
 
 :::: {.hint exercise="find-sqrt"}
 ::: {.callout-note collapse="true"}
@@ -195,7 +198,9 @@ sqrt(64)
 ```
 :::
 ::::
+:::
 
+:::{#exr-round-sqrt}
 Now try computing the square root of 44, *and then* rounding it to the nearest integer:
 
 ```{webr}
@@ -258,6 +263,7 @@ sqrt(44) |>
 (More on pipes later!)
 :::
 ::::
+:::
 
 ### Storing information in R: variables
 
@@ -279,6 +285,7 @@ round(my_root)
 
 Notice that to assign a name to the results of some R code, you use the symbol `<-`. You can think of it as an *assignment arrow* -- it points *from* a value or item *toward a name* and assigns the name to the thing.
 
+:::{#exr-name-a-variable}
 Try editing the code to change the name of the variable from `my_root` to something else, then run your new code:
 
 ```{webr}
@@ -305,6 +312,7 @@ round(your_new_name)
 ```
 :::
 ::::
+:::
 
 ### What if I have a list of numbers to store?
 
@@ -317,6 +325,7 @@ my_fave_numbers
 
 (First we stored the list of numbers, calling it my_fave_numbers; then we printed the results to the screen by simply typing the variable name my_fave_numbers).
 
+:::{#exr-c-and-sum}
 Try making a list of your three favorite numbers, then using the function `sum` to add them all up:
 
 ```{webr}
@@ -361,6 +370,7 @@ c(4, 16, 44) |>
 ```
 :::
 ::::
+:::
 
 ### What about data that are not numeric?
 
@@ -434,6 +444,7 @@ There are a few functions that make it easier to take a quick look at a dataset:
 -   `nrow()` reports the number of rows (observations or cases) in the dataset
 -   `ncol()` reports the number of columns (variables) in the dataset
 
+:::{#exr-check-out-data}
 Try applying each of these functions to the `HELPrct` data and see what the output looks like each time:
 
 ```{webr}
@@ -479,6 +490,7 @@ For example, if you want to know about the function `nrow()`:
 ```
 :::
 ::::
+:::
 
 ## Reading in data from a file
 
@@ -515,7 +527,7 @@ glimpse(MI_lead)
 You could do the same thing in your quarto file if you
 first download the data set and put it into a `data/` folder.
 But in that situation, it is just as convenient to
-read it from the internat.
+read it from the internet.
 :::
 
 :::{#exr-other-data}
@@ -525,25 +537,14 @@ Try changing `MI_lead.csv` to one of the other files listed by `dir('data')`.
 
 ### The most common mistakes
 
-The code below contains several of the **most common mistakes** students make when they try to read in a data file. See if you can find and correct them **all**!
+The code below contains several of the **most common mistakes** students make when they try to read in a data file. 
+
+:::{#exr-find-and-correct}
+See if you can find and correct all the errors in the code below.
 
 The code below - if corrected - *would* 
 <!-- (on posit.cloud or in standalone R/RStudio)  -->
 run without an error and read in some baseball statistics from the file <https://stacyderuiter.github.io/teachingdata/data-raw/baseball.csv>.
-
-:::{.callout-note}
-### Warning you can ignore
-
-When you load this data set (after correcting the problems in the code,
-you will see the message 
-```
-! curl package not installed, falling back to using url()
-```
-
-That's just letting you know that in the tutorial environment `curl` -- the 
-preferred tool for downloading files from the internet -- is not available,
-so another method is being used instead.  You can safely ignore this warning.
-:::
 
 ```{webr}
 #| exercise: baseball-mistakes
@@ -576,6 +577,22 @@ baseball_data <-
 ```
 :::
 ::::
+:::
+
+:::{.callout-note}
+### Warning you can ignore
+
+When you load this data set (after correcting the problems in the code,
+you will see the message 
+```
+! curl package not installed, falling back to using url()
+```
+
+That's just letting you know that in the tutorial environment `curl` -- the 
+preferred tool for downloading files from the internet -- is not available,
+so another method is being used instead.  You can safely ignore this warning.
+:::
+
 
 ### What about local files?
 
@@ -682,17 +699,20 @@ modfied_data <-
 
 OK, back to business - simple functions and datasets in R.
 
+:::{#exr-extract-info-MI-lead}
 It's your turn to practice now. Use one of the functions you have learned so far to extract some information about the MI_lead dataset.
 
-How many rows are in the dataset? How many variables (columns)?
+a. How many rows are in the dataset? How many variables (columns)?
 
-What are the variables named, and what are their values like?
+b. What are the variables named, and what are their values like?
 
 *Remember, `?` won't work on MI_lead because it's not a built-in R dataset. Also, the dataset MI_lead is already read in for you, here...so you don't need to use `read_csv()`.*
 
 ```{webr}
 #| exercise: look-at-MI_lead
 ```
+
+:::
 
 ## Review
 

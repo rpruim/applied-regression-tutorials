@@ -17,6 +17,8 @@ website:
             text: "Install R/RStudio"
           - href: r-basics.qmd
             text: "R Basics"
+      - section: Quarto 
+        contents:
           - href: quarto-how-to.qmd
             text: "Using Quarto"
           - href: quarto-math.qmd
@@ -53,9 +55,11 @@ website:
 format:
   html:
     theme: litera
-    css: styles.css
-    # css: [include/webex.css, styles.css]
-    # include-after-body: include/webex.js
+    css: [include/webex.css, styles.css]
+    include-after-body: include/webex.js
     toc: true
+  live-html:
+    theme: litera
+    css: styles.css
 
 editor: source
