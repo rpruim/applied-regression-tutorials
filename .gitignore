@@ -8,3 +8,5 @@
 /.luarc.json
 /quarto/
 .DS_store
+
+**/*.quarto_ipynb

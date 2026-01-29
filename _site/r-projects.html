@@ -1,33 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./graphics-design.html" rel="next">
-<link href="./quarto-math.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bec36afd707f4689c80cdbf8a93d76f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><meta charset="utf-8">
+
+<meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Stacy DeRuiter">
-<meta name="dcterms.date" content="2026-01-24">
+<meta name="author" content="Randall Pruim">
 
-<title>R Results in Quarto – Applied Regression with R</title>
+<title>RStudio Projects – Applied Regression with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -85,8 +31,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./graphics-design.html" rel="next">
-<link href="./quarto-math.html" rel="prev">
+<link href="./quarto-how-to.html" rel="next">
+<link href="./r-basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -98,8 +44,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7bec36afd707f4689c80cdbf8a93d76f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -127,10 +71,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
+<link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -166,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-results.html">R Results in Text</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r-install.html">R Basics</a></li><li class="breadcrumb-item"><a href="./r-projects.html">RStudio Projects</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -207,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-projects.html" class="sidebar-item-text sidebar-link">
+  <a href="./r-projects.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RStudio Projects</span></a>
   </div>
 </li>
@@ -236,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quarto-results.html" class="sidebar-item-text sidebar-link active">
+  <a href="./quarto-results.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Results in Text</span></a>
   </div>
 </li>
@@ -322,18 +265,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#including-results-of-r-calculations-in-your-text" id="toc-including-results-of-r-calculations-in-your-text" class="nav-link active" data-scroll-target="#including-results-of-r-calculations-in-your-text">Including results of R calculations in your text</a></li>
-  <li><a href="#rounding" id="toc-rounding" class="nav-link" data-scroll-target="#rounding">Rounding</a></li>
-  <li><a href="#r-results-with-more-than-one-value-inside" id="toc-r-results-with-more-than-one-value-inside" class="nav-link" data-scroll-target="#r-results-with-more-than-one-value-inside">R results with more than one value inside</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#create-a-new-project" id="toc-create-a-new-project" class="nav-link" data-scroll-target="#create-a-new-project">Create a New Project</a></li>
+  <li><a href="#shared-projects-server-only" id="toc-shared-projects-server-only" class="nav-link" data-scroll-target="#shared-projects-server-only">Shared Projects (server only)</a>
+  <ul class="collapse">
+  <li><a href="#sharing-a-project" id="toc-sharing-a-project" class="nav-link" data-scroll-target="#sharing-a-project">Sharing a Project</a></li>
+  <li><a href="#open-a-shared-project" id="toc-open-a-shared-project" class="nav-link" data-scroll-target="#open-a-shared-project">Open a Shared Project</a></li>
+  <li><a href="#collaborating" id="toc-collaborating" class="nav-link" data-scroll-target="#collaborating">Collaborating</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/r-projects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-results.html">R Results in Text</a></li></ol></nav><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-results.html">R Results in Text</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./r-install.html">R Basics</a></li><li class="breadcrumb-item"><a href="./r-projects.html">RStudio Projects</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R Results in Quarto</h1>
+<h1 class="title">RStudio Projects</h1>
 </div>
 
 
@@ -343,16 +291,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Stacy DeRuiter </p>
+             <p>Randall Pruim </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 24, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -362,129 +304,269 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="including-results-of-r-calculations-in-your-text" class="level2">
-<h2 class="anchored" data-anchor-id="including-results-of-r-calculations-in-your-text">Including results of R calculations in your text</h2>
-<p>You may also want to include the results of R calculations in the TEXT part of your report.</p>
-<p>Let’s say you compute the mean of some kids’ foot lengths:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="sc">~</span>length, <span class="at">data =</span> KidsFeet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 24.72308</code></pre>
-</div>
-</div>
-<p>You can use the result in the text part of your file…so you would type:</p>
-<p>The mean length of the kids’ feet was ` r mean(~length, data=KidsFeet) ` cm.</p>
-<p>To get:</p>
-<p>The mean length of the kids’ feet was 24.7230769 cm.</p>
-<p><em>Note: those accent marks (before the “r” and at the end of the R-code stuff) are not normal single quotes or apostrophes; they are “back-ticks” or “graves” ( ` ), just like those used to help define the start and end of R code chunks in your Quarto file. There should not actually be a space between the ` and the r.</em></p>
-<p>But it’s annoying (and sometimes not really practical) to (re)type the entire R command in the text part of your file. An option is to save the quantity you want to refer to as a variable in R:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mean_length <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="sc">~</span>length, <span class="at">data =</span> KidsFeet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Then you can write: The mean foot length of the kids was ` r mean_length` cm.</p>
-<p>To get: The mean foot length of the kids was 24.7230769 cm.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>It is a good idea to do your work in RStudio using <strong>Projects</strong>. A project if basically just a folder (and any files and sub-folders within it) that you have told RStudio are related.<br>
+You can use the <strong>Projects</strong> menu to quickly switch among your different projects. You can create different projects for different courses, different (types of) assignments, for your group project, etc. And you can have some settings apply on a per-project basis.</p>
+<p>One advantage of working in RStudio Server is the ability to easily <strong>share projects with other users</strong>.</p>
+<p>This guide will walk you through the steps to</p>
+<ul>
+<li>create a new project,</li>
+<li>share it with other users, and</li>
+<li>collaborate on documents within the project. (This is a bit like working in Google Docs, where multiple users can edit the same document simultaneously.)</li>
+</ul>
 </section>
-<section id="rounding" class="level2">
-<h2 class="anchored" data-anchor-id="rounding">Rounding</h2>
-<p>What if you want to include a more reasonable number of decimal places? Use : The mean foot length of the kids was ` r round(mean_length, digits = 2)` cm</p>
-<p>and you get: The mean foot length of the kids was 24.72 cm</p>
+<section id="create-a-new-project" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-project">Create a New Project</h2>
+<p>In order to share a project, you must first create one. Click on the <strong>Project Menu</strong> in the upper right of RStudio (it may say “Project: (None)” if you don’t have any projects yet) and select New Project.</p>
+<p><img src="images/rstudio-new-project.png" class="img-fluid" style="width:50.0%"></p>
+<p>A New Project Wizard window will open prompting you to select the type of project. Select the <strong>New Directory</strong> option and then select <strong>New Project.</strong></p>
+<p>Give your project a descriptive name and click on the <strong>Create Project</strong> button. Your project should open automatically.</p>
+<p>The project menu in the upper right of the page should now be labeled with the name of your project and the folder containing your project should be displayed in the <strong>Files</strong> tab.</p>
+<p>From now on, any document that you add to the project folder will be part of the project. Add a Quarto file to your project by clicking on <strong>File &gt; New File &gt; Quarto</strong></p>
 </section>
-<section id="r-results-with-more-than-one-value-inside" class="level2">
-<h2 class="anchored" data-anchor-id="r-results-with-more-than-one-value-inside">R results with more than one value inside</h2>
-<p>What if you have an object with more than one value in it? For example, what if you computes means for both boys and girls? You can use hard brackets ( [ … ] ) to refer to the first, second, etc. entries. For example:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>girlboy.means <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="sc">~</span> length <span class="sc">|</span> sex,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> KidsFeet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="shared-projects-server-only" class="level2">
+<h2 class="anchored" data-anchor-id="shared-projects-server-only">Shared Projects (server only)</h2>
+<section id="sharing-a-project" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-a-project">Sharing a Project</h3>
+<p>To share your project with other users, click on the <strong>Project</strong> Menu in the upper right of RStudio and select <strong>Share Project</strong>.</p>
+<p><img src="images/rstudio-share-project.png" class="img-fluid" style="width:50.0%"></p>
+<p>Enter the username of the user that you would like to share the project with, and then click the <strong>Add</strong> button. Click on the <strong>OK</strong> button when you are finished adding collaborators.</p>
+<p><img src="images/rstudio-share-with-user.png" class="img-fluid" style="width:50.0%"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>You type: The girls’ mean foot length was ` r girlboy.means[“G”] `, and the boys’ was ` r girlboy.means[“B”] `</p>
-<p>to get: The girls’ mean foot length was 24.3210526, and the boys’ was 25.105.</p>
-<p><em>You can also use numeric indices – for example, ` r girlboy.means[2] ` instead of ` r girlboy.means[“G”] ` to get the girls’ value – but using names when you can is always safer because you don’t have to worry about whether things are stored in the order you think that they are!</em></p>
-<p>If you are referring to a data table or other object with multiple rows and columns, you can use the syntax to extract a row, a column, or a specific value of interest. If you leave either or blank, all rows/columns will be included.</p>
-<p>For example, consider a table showing some data from a survey of intro stat students ( tells whether they have gotten a speeding ticket while driving a car, and tells whether they have texted while driving a car):</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>student_survey <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'https://sldr.netlify.app/data/IntroStatStudents.csv'</span>, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">na.strings =</span> <span class="fu">list</span>(<span class="st">''</span>, <span class="st">'NA'</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>Ticket <span class="sc">|</span> Texted, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> student_survey, </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">'proportion'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               Texted
-Ticket                  No        Yes
-  I don't drive 0.03703704 0.00000000
-  No            0.77777778 0.71900826
-  Yes           0.14814815 0.28099174
-  &lt;NA&gt;          0.03703704 0.00000000</code></pre>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Each shared project has a primary “owner”.
 </div>
 </div>
-<p>What if we want to print just the first column of data?</p>
-<p>(<em>Note: Don’t count the row and column names when numbering the rows and columns</em>.)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>Ticket <span class="sc">|</span> Texted, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> student_survey,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">'proportion'</span>)[,<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>I don't drive            No           Yes          &lt;NA&gt; 
-   0.03703704    0.77777778    0.14814815    0.03703704 </code></pre>
+<div class="callout-body-container callout-body">
+<p>If you are working as a team, pick one person to create and share the project. That person will be the “owner” of the project.</p>
 </div>
 </div>
-<p>Or better (and clearer…)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>Ticket <span class="sc">|</span> Texted, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> student_survey,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">'proportion'</span>)[, <span class="st">"No"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>I don't drive            No           Yes          &lt;NA&gt; 
-   0.03703704    0.77777778    0.14814815    0.03703704 </code></pre>
-</div>
-</div>
-<p>What about the third row (for people who have gotten a ticket)?</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tally</span>(<span class="sc">~</span>Ticket <span class="sc">|</span> Texted, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> student_survey, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">'proportion'</span>)[<span class="st">"Yes"</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       No       Yes 
-0.1481481 0.2809917 </code></pre>
-</div>
-</div>
-<p>What about the proportion of students with tickets, among those who’ve texted while driving? (Row 3, Column 2 = row “Yes” and column “Yes”)? Let’s first save the table so we don’t have to recompute…</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>driver_table <span class="ot">&lt;-</span> <span class="fu">tally</span>(<span class="sc">~</span>Ticket <span class="sc">|</span> Texted, </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> student_survey, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">format =</span> <span class="st">'proportion'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Type: The proportion of students who have texted while driving who have gotten a speeding ticket is ` r driver_table[“Yes”,“Yes”] `.</p>
-<p>To get: The proportion of students who have texted while driving who have gotten a speeding ticket is 0.2809917.</p>
-<p>(<em>Like before, if it’s possible to use names instead of numeric indices, try to do so!</em>)</p>
+</section>
+<section id="open-a-shared-project" class="level3">
+<h3 class="anchored" data-anchor-id="open-a-shared-project">Open a Shared Project</h3>
+<p>To open a project that has been shared with you click on the <strong>Project Menu</strong> in the upper right of RStudio and select <strong>Open Project</strong>. Click on the <strong>Shared with Me</strong> tab at the top of the window to display the projects that are shared with you.</p>
+<p><img src="images/rstudio-shared-with-me.png" class="img-fluid" style="width:50.0%"></p>
+<p>Select the desired project and click <strong>Open Project</strong>.</p>
+</section>
+<section id="collaborating" class="level3">
+<h3 class="anchored" data-anchor-id="collaborating">Collaborating</h3>
+<p>Multiple users can simultaneously work on any document in a shared project. If a user signs on and works on the document while you are working on the document a colored icon will appear at the top of the page. Hover on the icon to see the user’s info.</p>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
+</section>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -888,13 +970,13 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./quarto-math.html" class="pagination-link" aria-label="Mathematical Notation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mathematical Notation</span>
+      <a href="./r-basics.html" class="pagination-link" aria-label="R Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R Basics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./graphics-design.html" class="pagination-link" aria-label="Designing Data Visualizations">
-        <span class="nav-page-text">Designing Data Visualizations</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./quarto-how-to.html" class="pagination-link" aria-label="Using Quarto">
+        <span class="nav-page-text">Using Quarto</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -903,4 +985,4 @@ window._ojs.runtime.interpretFromScriptTags();
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-results.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/r-projects.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

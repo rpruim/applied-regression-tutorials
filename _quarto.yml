@@ -17,6 +17,8 @@ website:
             text: "Install R/RStudio"
           - href: r-basics.qmd
             text: "R Basics"
+          - href: r-projects.qmd
+            text: "RStudio Projects"
       - section: Quarto 
         contents:
           - href: quarto-how-to.qmd
@@ -50,7 +52,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
 
 format:
   html:
