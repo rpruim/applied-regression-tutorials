@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./quarto-math.html" rel="next">
-<link href="./r-projects.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7bec36afd707f4689c80cdbf8a93d76f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><meta charset="utf-8">
+
+<meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -96,8 +78,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7bec36afd707f4689c80cdbf8a93d76f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -125,14 +105,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
+<link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -315,11 +294,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#reference-materials" id="toc-reference-materials" class="nav-link" data-scroll-target="#reference-materials">Reference Materials</a>
+  <ul class="collapse">
+  <li><a href="#optional-video" id="toc-optional-video" class="nav-link" data-scroll-target="#optional-video"><em>Optional</em> Video</a></li>
+  </ul></li>
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#logging-in-to-rstudio" id="toc-logging-in-to-rstudio" class="nav-link" data-scroll-target="#logging-in-to-rstudio">Logging in to RStudio</a></li>
+  <li><a href="#panels" id="toc-panels" class="nav-link" data-scroll-target="#panels">Panels</a></li>
+  <li><a href="#executing-code-in-r" id="toc-executing-code-in-r" class="nav-link" data-scroll-target="#executing-code-in-r">Executing code in R</a></li>
+  </ul></li>
+  <li><a href="#quarto-qmd-files" id="toc-quarto-qmd-files" class="nav-link" data-scroll-target="#quarto-qmd-files">Quarto (qmd) Files</a>
+  <ul class="collapse">
+  <li><a href="#quarto-files-are-stand-alone" id="toc-quarto-files-are-stand-alone" class="nav-link" data-scroll-target="#quarto-files-are-stand-alone">Quarto files are stand-alone!</a></li>
+  <li><a href="#create-a-quarto-file" id="toc-create-a-quarto-file" class="nav-link" data-scroll-target="#create-a-quarto-file">Create a Quarto file</a></li>
+  <li><a href="#save-your-qmd-file" id="toc-save-your-qmd-file" class="nav-link" data-scroll-target="#save-your-qmd-file">Save your qmd file</a></li>
+  <li><a href="#render" id="toc-render" class="nav-link" data-scroll-target="#render">Render!</a></li>
+  <li><a href="#source-vs.-visual-editor" id="toc-source-vs.-visual-editor" class="nav-link" data-scroll-target="#source-vs.-visual-editor">Source vs.&nbsp;Visual Editor</a></li>
+  <li><a href="#personalize-your-markdown-file" id="toc-personalize-your-markdown-file" class="nav-link" data-scroll-target="#personalize-your-markdown-file">Personalize your Markdown file</a></li>
+  </ul></li>
+  <li><a href="#quarto-yaml-settings" id="toc-quarto-yaml-settings" class="nav-link" data-scroll-target="#quarto-yaml-settings">Quarto YAML settings</a>
+  <ul class="collapse">
+  <li><a href="#pdf-or-html" id="toc-pdf-or-html" class="nav-link" data-scroll-target="#pdf-or-html">PDF or html?</a></li>
+  <li><a href="#code-tools" id="toc-code-tools" class="nav-link" data-scroll-target="#code-tools">Code tools</a></li>
+  </ul></li>
+  <li><a href="#text-and-code-in-quarto" id="toc-text-and-code-in-quarto" class="nav-link" data-scroll-target="#text-and-code-in-quarto">Text and Code in Quarto</a>
+  <ul class="collapse">
+  <li><a href="#text" id="toc-text" class="nav-link" data-scroll-target="#text">Text</a></li>
+  <li><a href="#qmd-file-anatomy-r-code-chunks" id="toc-qmd-file-anatomy-r-code-chunks" class="nav-link" data-scroll-target="#qmd-file-anatomy-r-code-chunks">qmd file anatomy: R code chunks</a></li>
+  <li><a href="#how-to-add-a-new-r-code-chunk-to-your-file" id="toc-how-to-add-a-new-r-code-chunk-to-your-file" class="nav-link" data-scroll-target="#how-to-add-a-new-r-code-chunk-to-your-file">How to add a new R code chunk to your file</a></li>
+  <li><a href="#setup-chunk" id="toc-setup-chunk" class="nav-link" data-scroll-target="#setup-chunk">Setup Chunk</a></li>
+  <li><a href="#the-settings-chunk-is-invisible" id="toc-the-settings-chunk-is-invisible" class="nav-link" data-scroll-target="#the-settings-chunk-is-invisible">The settings chunk is invisible!</a></li>
+  <li><a href="#clean-up" id="toc-clean-up" class="nav-link" data-scroll-target="#clean-up">Clean Up</a></li>
+  </ul></li>
+  <li><a href="#run-r-code" id="toc-run-r-code" class="nav-link" data-scroll-target="#run-r-code">Run R Code</a>
+  <ul class="collapse">
+  <li><a href="#running-r-code-from-a-qmd-file-render-the-file" id="toc-running-r-code-from-a-qmd-file-render-the-file" class="nav-link" data-scroll-target="#running-r-code-from-a-qmd-file-render-the-file">Running R Code from a qmd file: Render the file</a></li>
+  <li><a href="#running-r-code-from-a-qmd-file-run-menu" id="toc-running-r-code-from-a-qmd-file-run-menu" class="nav-link" data-scroll-target="#running-r-code-from-a-qmd-file-run-menu">Running R Code from a qmd file: Run Menu</a></li>
+  <li><a href="#running-code-from-a-qmd-file-shortcut-button" id="toc-running-code-from-a-qmd-file-shortcut-button" class="nav-link" data-scroll-target="#running-code-from-a-qmd-file-shortcut-button">Running Code from a qmd file: Shortcut Button</a></li>
+  <li><a href="#running-code-from-a-qmd-file-copy-and-paste" id="toc-running-code-from-a-qmd-file-copy-and-paste" class="nav-link" data-scroll-target="#running-code-from-a-qmd-file-copy-and-paste">Running Code from a qmd file: Copy and Paste</a></li>
+  </ul></li>
+  <li><a href="#downloading-files-from-rstudio" id="toc-downloading-files-from-rstudio" class="nav-link" data-scroll-target="#downloading-files-from-rstudio">Downloading files from RStudio</a></li>
+  <li><a href="#quarto-files-stand-alone" id="toc-quarto-files-stand-alone" class="nav-link" data-scroll-target="#quarto-files-stand-alone">Quarto Files Stand Alone!</a></li>
+  <li><a href="#data-from-a-url" id="toc-data-from-a-url" class="nav-link" data-scroll-target="#data-from-a-url">Data from a URL</a>
+  <ul class="collapse">
+  <li><a href="#when-you-read-in-data-store-it-to-a-named-object" id="toc-when-you-read-in-data-store-it-to-a-named-object" class="nav-link" data-scroll-target="#when-you-read-in-data-store-it-to-a-named-object">When you read in data, store it to a named object</a></li>
+  </ul></li>
+  <li><a href="#data-from-google-sheets" id="toc-data-from-google-sheets" class="nav-link" data-scroll-target="#data-from-google-sheets">Data from Google Sheets</a></li>
+  <li><a href="#data-from-a-file" id="toc-data-from-a-file" class="nav-link" data-scroll-target="#data-from-a-file">Data from a File</a></li>
+  <li><a href="#r-functions" id="toc-r-functions" class="nav-link" data-scroll-target="#r-functions">R functions</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-how-to.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-how-to.html">Using Quarto</a></li></ol></nav><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-how-to.html">Using Quarto</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./quarto-how-to.html">Quarto</a></li><li class="breadcrumb-item"><a href="./quarto-how-to.html">Using Quarto</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Reproducible Documents with Quarto in RStudio</h1>
 </div>
@@ -392,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For example, if you use the point-and-click user interface in the RStudio <em>Environment</em> tab to import a data file, that dataset will <em>not</em> be available when rendering your qmd file.</p>
 <p>Similarly, if you load the <code>mosaic</code> package by typing in the <em>Console</em> window,</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong><code>mosaic</code> functions and data will not be available to use within the qmd file.</strong></p>
 <blockquote class="blockquote">
@@ -606,7 +643,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="setup-chunk">Setup Chunk</h3>
 <p>Consider using the first R code chunk in a qmd file to specify settings (for graphics, display, etc.). In this chunk, you can also give R permission to use certain packages (software toolkits) with</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(packagename) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(packagename) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For example, we will use the <code>ggformula</code> package for graphics. So, verify that the first R code chunk in your file includes the line <code>library(ggformula)</code>.</p>
 <p>You can also specify options for each R code chunk - these go at the top, prefaced by <code>#|</code>. A typical setup chunk for our course might look like:</p>
@@ -717,13 +754,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can load online datafiles in .csv format into R using the function <code>read_csv()</code>. The input to <code>read_csv()</code> is the full url where the file is located, in quotation marks. (Single or double quotes – it doesn’t matter which you choose, as they are equivalent in R.)</p>
 <p>For example, we will consider a dataset with counts of the numbers of birds of different species seen at different locations in Hawai’i. It is stored at <a href="https://sldr.netlify.app/data/hawaii_birds.csv" class="uri">https://sldr.netlify.app/data/hawaii_birds.csv</a>, and can be read into R using the command below.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hi_birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://sldr.netlify.app/data/hawaii_birds.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hi_birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://sldr.netlify.app/data/hawaii_birds.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="when-you-read-in-data-store-it-to-a-named-object" class="level3">
 <h3 class="anchored" data-anchor-id="when-you-read-in-data-store-it-to-a-named-object">When you read in data, store it to a named object</h3>
 <p>Note that we didn’t just run the <code>read_csv()</code> function – we assigned the results a <strong>name</strong> so that instead of printing the data table to the screen, R stores the dataset for later use.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hi_birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://sldr.netlify.app/data/hawaii_birds.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hi_birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://sldr.netlify.app/data/hawaii_birds.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here, we assigned the name <strong>hi_birds</strong> to the dataset using an “assignment arrow” <code>&lt;-</code> (the “arrow” points from the object toward the name).</p>
 </section>
@@ -778,44 +815,225 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="r-functions">R functions</h2>
 <p>After reading the data in, you can use R functions to have a look at it, for example:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hi_birds)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(hi_birds)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(hi_birds)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hi_birds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hi_birds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Try each of the lines of code above in R. What do the functions <code>head()</code>, <code>glimpse()</code>, and <code>nrow()</code> <strong>do</strong>? Try to figure it out based on the output they produce.</p>
 <p>If you get stuck, consult R’s built-in help files. Remember, you can access the help for a function by running the code <code>?functionName</code> – for example, if you want help on <code>head()</code>, run:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?head</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?head</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-W10=
-</script>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -1234,4 +1452,4 @@ window._ojs.runtime.interpretFromScriptTags();
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-how-to.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="toc-actions"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-how-to.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rpruim/applied-regression-tutorials/edit/main/quarto-how-to.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rpruim/applied-regression-tutorials/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

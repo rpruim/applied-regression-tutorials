@@ -29,8 +29,25 @@ Click on the **Project Menu** in the upper right of RStudio (it may say "Project
 
 A New Project Wizard window will open prompting you to select the type of project. Select the **New Directory** option and then select **New Project.**
 
-Give your project a descriptive name and click on the 
-**Create Project** button. 
+Give your project a descriptive name.
+
+Click the **Browse** button to select a folder where you want to save this project.
+
+:::{.callout-warning #warning-rprojects}
+### Shared projects must live in a special place
+
+If you plan to share your project with others, you must save it in a special place:
+`/rprojects/<your_user_name>`.  This folder lives outside your home directory, so
+a special process is involved.
+
+Click **Browse** and then the three little dots (...) in the upper right.
+Now enter `/rprojects/<your_user_name>` in the entry box.
+
+!{}(images/rstudio-rprojects-browse.png){width="50%"}
+
+:::
+
+Once you have chosen the directoty name and the directory to create it in ("Create project as a subdirectory of"), you can choose **Create Project**.
 Your project should open automatically.
 
 The project menu in the upper right of the page should now be labeled with the name of your project and the folder containing your project should be displayed in the **Files** tab.
@@ -41,7 +58,8 @@ Add a Quarto file to your project by clicking on **File > New File > Quarto**
 ## Shared Projects (server only)
 ### Sharing a Project 
 
-To share your project with other users, click on the 
+***Shared projects must live in `/rprojects/<your_user_name>`. See @warning-rprojects for details.***
+
 **Project** Menu in the upper right of RStudio and select 
 **Share Project**. 
 

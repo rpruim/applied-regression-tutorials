@@ -321,7 +321,24 @@ You can use the <strong>Projects</strong> menu to quickly switch among your diff
 <p>In order to share a project, you must first create one. Click on the <strong>Project Menu</strong> in the upper right of RStudio (it may say “Project: (None)” if you don’t have any projects yet) and select New Project.</p>
 <p><img src="images/rstudio-new-project.png" class="img-fluid" style="width:50.0%"></p>
 <p>A New Project Wizard window will open prompting you to select the type of project. Select the <strong>New Directory</strong> option and then select <strong>New Project.</strong></p>
-<p>Give your project a descriptive name and click on the <strong>Create Project</strong> button. Your project should open automatically.</p>
+<p>Give your project a descriptive name.</p>
+<p>Click the <strong>Browse</strong> button to select a folder where you want to save this project.</p>
+<div id="warning-rprojects" class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Shared projects must live in a special place
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you plan to share your project with others, you must save it in a special place: <code>/rprojects/&lt;your_user_name&gt;</code>. This folder lives outside your home directory, so a special process is involved.</p>
+<p>Click <strong>Browse</strong> and then the three little dots (…) in the upper right. Now enter <code>/rprojects/&lt;your_user_name&gt;</code> in the entry box.</p>
+<p>!{}(images/rstudio-rprojects-browse.png){width=“50%”}</p>
+</div>
+</div>
+<p>Once you have chosen the directoty name and the directory to create it in (“Create project as a subdirectory of”), you can choose <strong>Create Project</strong>. Your project should open automatically.</p>
 <p>The project menu in the upper right of the page should now be labeled with the name of your project and the folder containing your project should be displayed in the <strong>Files</strong> tab.</p>
 <p>From now on, any document that you add to the project folder will be part of the project. Add a Quarto file to your project by clicking on <strong>File &gt; New File &gt; Quarto</strong></p>
 </section>
@@ -329,7 +346,8 @@ You can use the <strong>Projects</strong> menu to quickly switch among your diff
 <h2 class="anchored" data-anchor-id="shared-projects-server-only">Shared Projects (server only)</h2>
 <section id="sharing-a-project" class="level3">
 <h3 class="anchored" data-anchor-id="sharing-a-project">Sharing a Project</h3>
-<p>To share your project with other users, click on the <strong>Project</strong> Menu in the upper right of RStudio and select <strong>Share Project</strong>.</p>
+<p><strong><em>Shared projects must live in <code>/rprojects/&lt;your_user_name&gt;</code>. See <span class="citation" data-cites="warning-rprojects">@warning-rprojects</span> for details.</em></strong></p>
+<p><strong>Project</strong> Menu in the upper right of RStudio and select <strong>Share Project</strong>.</p>
 <p><img src="images/rstudio-share-project.png" class="img-fluid" style="width:50.0%"></p>
 <p>Enter the username of the user that you would like to share the project with, and then click the <strong>Add</strong> button. Click on the <strong>OK</strong> button when you are finished adding collaborators.</p>
 <p><img src="images/rstudio-share-with-user.png" class="img-fluid" style="width:50.0%"></p>
