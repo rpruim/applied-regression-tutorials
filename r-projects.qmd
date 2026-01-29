@@ -25,7 +25,9 @@ working in Google Docs, where multiple users can edit the same document simultan
 In order to share a project, you must first create one.
 Click on the **Project Menu** in the upper right of RStudio (it may say "Project: (None)" if you don't have any projects yet) and select New Project.
 
+<center>
 ![](images/rstudio-new-project.png){width="50%"}
+</center>
 
 A New Project Wizard window will open prompting you to select the type of project. Select the **New Directory** option and then select **New Project.**
 
@@ -37,17 +39,26 @@ Click the **Browse** button to select a folder where you want to save this proje
 ### Shared projects must live in a special place
 
 If you plan to share your project with others, you must save it in a special place:
-`/rprojects/<your_user_name>`.  This folder lives outside your home directory, so
-a special process is involved.
+
+* `/rprojects/<your_user_name>`.  
+
+This folder lives outside your home directory, so a special process is involved
+in selecting the location.
 
 Click **Browse** and then the three little dots (...) in the upper right.
 Now enter `/rprojects/<your_user_name>` in the entry box.
 
-!{}(images/rstudio-rprojects-browse.png){width="50%"}
-
+<center>
+![](images/rstudio-rprojects-browse.png){width="50%"}
+</center>
 :::
 
 Once you have chosen the directoty name and the directory to create it in ("Create project as a subdirectory of"), you can choose **Create Project**.
+
+<center>
+![](images/rstudio-create-shared-project.png){width="50%"}
+</center>
+
 Your project should open automatically.
 
 The project menu in the upper right of the page should now be labeled with the name of your project and the folder containing your project should be displayed in the **Files** tab.
@@ -63,12 +74,16 @@ Add a Quarto file to your project by clicking on **File > New File > Quarto**
 **Project** Menu in the upper right of RStudio and select 
 **Share Project**. 
 
+<center>
 ![](images/rstudio-share-project.png){width="50%"}
+</center>
 
 Enter the username of the user that you would like to share the project with, and then click the **Add** button. 
 Click on the **OK** button when you are finished adding collaborators.
 
+<center>
 ![](images/rstudio-share-with-user.png){width="50%"}
+</center>
 
 :::{.callout-note}
 ### Each shared project has a primary "owner".
@@ -84,7 +99,9 @@ To open a project that has been shared with you click on the
 **Open Project**. 
 Click on the **Shared with Me** tab at the top of the window to display the projects that are shared with you. 
 
+<center>
 ![](images/rstudio-shared-with-me.png){width="50%"}
+</center>
 
 Select the desired project and click **Open Project**.
 
