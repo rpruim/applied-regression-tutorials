@@ -69,11 +69,13 @@ Add a Quarto file to your project by clicking on **File > New File > Quarto**
 ## Shared Projects (server only)
 ### Sharing a Project 
 
-***Shared projects must live in 
+:::{.callout-warning}
+Shared projects must live in 
 
 * `/rprojects/<your_user_name>`. 
 
-See [the warning above](#warning-rprojects) for details.***
+See [the warning above](#warning-rprojects) for details.
+:::
 
 **Project** Menu in the upper right of RStudio and select 
 **Share Project**. 
